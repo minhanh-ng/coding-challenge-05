@@ -1,4 +1,4 @@
-employee = [
+const employee = [
     {name: "Jim", hourlyRate: 40, hoursWorked: 30},
     {name: "Jane", hourlyRate: 60, hoursWorked: 40},
     {name: "Jay", hourlyRate: 100, hoursWorked: 20},
@@ -7,9 +7,28 @@ employee = [
 ];
 
 function calculateBasePay(rate, hours) {
-    if (hoursWorked <= 40) {
+    if (hours <= 40) {
         return rate * hours
     }
 };
 
-calculateBasePay(40, 30)
+function calculateOvertimePay(rate, hours) {
+    if (hours > 40) {
+        return hours * (rate * 1.5)
+    }
+};
+
+function calculateTaxes(grossPay) {
+    return grossPay * (1-0.15)
+};
+
+const employeeName = employee.name
+function processPayroll(employee) {
+    return {
+        employee,
+        calculateBasePay,
+        calculateOvertimePay,
+        calculateGrossPay,
+        calculateTaxes
+    }
+}
