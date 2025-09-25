@@ -7,19 +7,17 @@ const employee = [
 ];
 
 function calculateBasePay(rate, hours) {
-    if (hours <= 40) {
-        return rate * hours
-    }
-};
+    const hoursWorked = Math.min(hours,40);
+    return rate * hoursWorked
+    };
 
 function calculateOvertimePay(rate, hours) {
-    if (hours > 40) {
-        return hours * (rate * 1.5)
-    }
-};
+    const OvertimePay = Math.max(hours - 40);
+    return overtimePay * rate * 1.5
+    };
 
 function calculateTaxes(grossPay) {
-    return grossPay * (1-0.15)
+    return grossPay * 0.15
 };
 
 const employeeName = employee.name
