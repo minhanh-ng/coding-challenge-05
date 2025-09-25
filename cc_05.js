@@ -40,4 +40,7 @@ function processPayroll(employee) {
     }
 };
 
-
+//Step 7
+for (let e of employee){
+    console.log(processPayroll(e))
+};
