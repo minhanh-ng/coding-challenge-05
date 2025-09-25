@@ -1,29 +1,29 @@
-//Step 1
+//Step 2
 const employee = [
     {name: "Jim", hourlyRate: 40, hoursWorked: 30},
     {name: "Jane", hourlyRate: 60, hoursWorked: 40},
-    {name: "Jay", hourlyRate: 100, hoursWorked: 20},
+    {name: "Jay", hourlyRate: 100, hoursWorked: 100},
     {name: "Jone", hourlyRate: 30, hoursWorked: 40},
     {name: "June", hourlyRate: 50, hoursWorked: 60}
 ];
-//Step 2
+//Step 3: returns pay for up to 40 hours only.
 function calculateBasePay(rate, hours) {
     const hoursWorked = Math.min(hours,40);
     return rate * hoursWorked
     };
-//Step 3
+//Step 4: returns 1.5x rate for hours over 40.
 function calculateOvertimePay(rate, hours) {
     const overtimePay = Math.max(hours - 40, 0);
     return overtimePay * rate * 1.5
     };
-//Step 4
+//Step 5
 function calculateTaxes(grossPay) {
     return grossPay * 0.15
 };
 
-//Step 5
+//Calculate gross pay
 function calculateGrossPay(rate, hours) {
-    return calculateBasePay (rate, hours) + calculateOvertimePay(rate, hours)
+    return calculateBasePay(rate, hours) + calculateOvertimePay(rate, hours)
 };
 
 //Step 6
@@ -35,6 +35,7 @@ function processPayroll(employee) {
     return {
         name: employee.name,
         basePay: basePay.toFixed(2),
+        overtimePay: overtimePay.toFixed(2),
         grossPay: grossPay.toFixed(2),
         netPay: netPay.toFixed(2)
     }
